@@ -45,7 +45,9 @@ end
 
 post '/new' do
 	url = params[:url]
+	hash = (Digest::SHA1.hexdigest url).slice(0,4) 
 	p "--------------the url is #{url}"
+	p "--------------its hash is #{hash}"
     # PUT CODE HERE TO CREATE NEW SHORTENED LINKS
 end
 
