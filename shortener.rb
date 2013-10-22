@@ -44,6 +44,8 @@ get '/new' do
 end
 
 post '/new' do
+	url = params[:url]
+	p "--------------the url is #{url}"
     # PUT CODE HERE TO CREATE NEW SHORTENED LINKS
 end
 
