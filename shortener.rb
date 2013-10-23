@@ -52,12 +52,14 @@ post '/new' do
   Link.create(:full_url => url,
               :short_url => hash,
               :description => description)
-  p "--------------its hash is #{hash}" 
+  p "t/#{hash}" 
 end
 # this is the route that should handle all the redirects
 get '/t/:hash' do
-  iki = params[:hash]
-  p "hello #{iki}"
+  link = Link.find_by_short_url(params[:hash])
+  p "will redirect to: #{link.full_url}"
+  
+  redirect to("http://#{link.full_url}")
 end
 
 
