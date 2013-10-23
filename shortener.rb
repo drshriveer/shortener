@@ -28,6 +28,11 @@ end
 # http://guides.rubyonrails.org/association_basics.html
 
 class Link < ActiveRecord::Base
+	# create_table :links do |t|
+	# 	t.string :url
+	# 	t.string :shorturl
+	# 	t.timestamps
+	# end
 end
 
 ###########################################################
@@ -46,9 +51,16 @@ end
 post '/new' do
 	url = params[:url]
 	hash = (Digest::SHA1.hexdigest url).slice(0,4) 
-	p "--------------the url is #{url}"
 	p "--------------its hash is #{hash}"
     # PUT CODE HERE TO CREATE NEW SHORTENED LINKS
+
 end
+# this is the route that should handle all the redirects
+get '/t/:hash' do
+	iki = params[:hash]
+	p "hello #{iki}"
+end
+
+
 
 # MORE ROUTES GO HERE
