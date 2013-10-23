@@ -14,6 +14,7 @@ class CreateLinks < ActiveRecord::Migration
 	     	t.column :full_url, :string
 	     	t.column :short_url, :string
 	     	t.column :description, :text
+            # t.column :visits, :integer
 	     	t.column :created_at, :datetime
 	     	t.column :updated_at, :datetime
    		end
