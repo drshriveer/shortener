@@ -45,11 +45,13 @@ end
 
 post '/new' do
   url = params[:url]
+  description = params[:description]
   hash = (Digest::SHA1.hexdigest url).slice(0,4) 
   # adds new link to database
   # TODO: add ability for description too!
   Link.create(:full_url => url,
-              :short_url => hash)
+              :short_url => hash,
+              :description => description)
   p "--------------its hash is #{hash}" 
 end
 # this is the route that should handle all the redirects
