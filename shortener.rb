@@ -61,6 +61,7 @@ end
 get '/t/:hash' do
   link = Link.find_by_short_url(params[:hash])
   # link.visits = link.visits + 1
+  # link.save
   p "will redirect to: #{link.full_url}"
   redirect "http://#{link.full_url}"
 end
